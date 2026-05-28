@@ -1,4 +1,5 @@
 # Open-Source Web App QA Portfolio
+[![UI Automation Evidence](https://github.com/Mohanad49/open-source-webapp-qa-portfolio/actions/workflows/qa.yml/badge.svg)](https://github.com/Mohanad49/open-source-webapp-qa-portfolio/actions/workflows/qa.yml)
 
 **Live Report Hub**: https://mohanad49.github.io/open-source-webapp-qa-portfolio/ <br>
 **Target App**: https://the-internet.herokuapp.com <br>
