@@ -1,5 +1,9 @@
 # Open-Source Web App QA Portfolio
 
+**Live Report Hub**: https://mohanad49.github.io/open-source-webapp-qa-portfolio/ <br>
+**Target App**: https://the-internet.herokuapp.com <br>
+**Repository**: https://github.com/Mohanad49/open-source-webapp-qa-portfolio
+
 A production-style Selenium + PyTest automation framework targeting Sauce Labs' open-source **The Internet** web app.
 
 ## Why this project exists
