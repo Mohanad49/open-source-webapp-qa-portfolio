@@ -1,0 +1,22 @@
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "--strict-markers --strict-config --tb=short --reruns 1 --reruns-delay 1"
+testpaths = ["tests"]
+markers = [
+  "smoke: fast, high-confidence checks suitable for pull requests",
+  "regression: broader coverage for nightly or release validation",
+  "auth: authentication and session management checks",
+  "forms: form controls and input validation checks",
+  "dynamic: waits, ajax, and delayed-render UI checks",
+  "tables: data table checks",
+  "windows: browser window, JavaScript alert, and tab behavior checks",
+  "upload: file upload checks"
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

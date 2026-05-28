@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QA War Room — Open-Source Web App Automation</title>
+    <meta
+      name="description"
+      content="A GitHub Pages-ready QA automation report hub for Selenium, PyTest, Allure, and The Internet open-source web app."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="QA War Room Home">QA/WAR<span>ROOM</span></a>
+        <div class="nav__links">
+          <a href="#coverage">Coverage</a>
+          <a href="#runbook">Runbook</a>
+          <a href="./allure-report/index.html">Allure</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">Open-source web app automation portfolio</p>
+        <h1 id="hero-title">Break the build before users do.</h1>
+        <p class="hero__copy">
+          A Selenium + PyTest control room targeting Sauce Labs' open-source
+          <strong>The Internet</strong> application: auth, forms, dynamic waits, tables, windows,
+          JavaScript alerts, status codes, and uploads.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--hot" href="./allure-report/index.html">Open Allure Report</a>
+          <a class="button button--ghost" href="https://the-internet.herokuapp.com">Target App</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="metrics" aria-label="Suite metrics">
+        <article>
+          <span class="metric__value" data-count="70">0</span>
+          <span class="metric__label">Automated checks</span>
+        </article>
+        <article>
+          <span class="metric__value" data-count="8">0</span>
+          <span class="metric__label">Feature zones</span>
+        </article>
+        <article>
+          <span class="metric__value" data-count="2">0</span>
+          <span class="metric__label">Report formats</span>
+        </article>
+      </section>
+
+      <section id="coverage" class="coverage" aria-labelledby="coverage-title">
+        <div class="section-kicker">Coverage map</div>
+        <h2 id="coverage-title">The suite is built like a release gate, not a tutorial.</h2>
+        <div class="coverage__grid">
+          <article class="module module--wide">
+            <p class="module__code">AUTH-01</p>
+            <h3>Authentication</h3>
+            <p>Valid login, invalid credentials, logout, and protected-route access checks.</p>
+          </article>
+          <article class="module">
+            <p class="module__code">FORM-02</p>
+            <h3>Forms</h3>
+            <p>Checkboxes, dropdowns, and numeric input behavior with parameterized data.</p>
+          </article>
+          <article class="module">
+            <p class="module__code">DYN-03</p>
+            <h3>Dynamic UI</h3>
+            <p>Explicit waits around AJAX controls, delayed rendering, and state changes.</p>
+          </article>
+          <article class="module module--tall">
+            <p class="module__code">DATA-04</p>
+            <h3>Tables</h3>
+            <p>Headers, row content, currency formatting, email patterns, and sort behavior.</p>
+          </article>
+          <article class="module">
+            <p class="module__code">BROWSER-05</p>
+            <h3>Windows & alerts</h3>
+            <p>New tabs, alert accept/dismiss paths, and prompt text capture.</p>
+          </article>
+          <article class="module">
+            <p class="module__code">FILE-06</p>
+            <h3>Upload</h3>
+            <p>Fixture-backed file upload with server confirmation assertions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="runbook" class="runbook" aria-labelledby="runbook-title">
+        <div>
+          <div class="section-kicker">Operator runbook</div>
+          <h2 id="runbook-title">One command should tell you if the release is lying.</h2>
+          <p>
+            Run smoke checks locally before pushing. Let CI run the full regression suite and publish
+            the evidence trail.
+          </p>
+        </div>
+        <div class="terminal" role="region" aria-label="Run commands">
+          <div class="terminal__bar">
+            <span></span><span></span><span></span>
+            <strong>qa-console</strong>
+          </div>
+          <pre><code id="commandText">python -m pytest -m smoke --browser chrome --headless \
+  --html=reports/pytest-report.html --self-contained-html \
+  --alluredir=reports/allure-results</code></pre>
+          <div class="terminal__actions">
+            <button data-command="smoke">Smoke</button>
+            <button data-command="regression">Regression</button>
+            <button data-command="allure">Allure</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Designed as an industrial QA evidence room — dark, direct, and impossible to mistake for a template.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

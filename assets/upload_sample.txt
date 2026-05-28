@@ -1,0 +1,2 @@
+QA portfolio upload fixture
+This file is intentionally tiny so the upload test stays fast and stable.
