@@ -19,6 +19,7 @@ env:
   BROWSER: chrome
   HEADLESS: true
   TIMEOUT: 15
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   test:
