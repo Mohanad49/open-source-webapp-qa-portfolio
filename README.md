@@ -2,10 +2,6 @@
 
 A production-style Selenium + PyTest automation framework targeting Sauce Labs' open-source **The Internet** web app.
 
-This repository is built to support the resume claim:
-
-> Built a full end-to-end test suite for a real open-source web application using Python, Selenium, PyTest, GitHub Actions, and HTML/Allure reporting.
-
 ## Why this project exists
 
 Most junior QA portfolios are just loose Selenium scripts. This one is intentionally structured like a real QA framework:
