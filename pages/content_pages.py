@@ -25,19 +25,19 @@ class HoversPage(BasePage):
 
 
 class TablesPage(BasePage):
-    TABLE_ONE_ROWS = (By.CSS_SELECTOR, "#table1 tbody tr")
-    TABLE_ONE_HEADERS = (By.CSS_SELECTOR, "#table1 thead th")
+    TABLE_TWO_ROWS = (By.CSS_SELECTOR, "#table2 tbody tr")
+    TABLE_TWO_HEADERS = (By.CSS_SELECTOR, "#table2 thead th")
 
     def load(self) -> "TablesPage":
         self.open("/tables")
         return self
 
     def headers(self) -> list[str]:
-        return [header.text.strip() for header in self.find_all(self.TABLE_ONE_HEADERS)]
+        return [header.text.strip() for header in self.find_all(self.TABLE_TWO_HEADERS)]
 
     def rows(self) -> list[dict[str, str]]:
         result: list[dict[str, str]] = []
-        for row in self.find_all(self.TABLE_ONE_ROWS):
+        for row in self.find_all(self.TABLE_TWO_ROWS):
             result.append(
                 {
                     "last_name": row.find_element(By.CSS_SELECTOR, ".last-name").text.strip(),
@@ -51,7 +51,7 @@ class TablesPage(BasePage):
         return result
 
     def sort_by_header(self, header_text: str) -> None:
-        self.click((By.XPATH, f"//table[@id='table1']//th[normalize-space()='{header_text}']"))
+        self.click((By.XPATH, f"//table[@id='table2']//th[normalize-space()='{header_text}']"))
 
 
 class JavaScriptAlertsPage(BasePage):

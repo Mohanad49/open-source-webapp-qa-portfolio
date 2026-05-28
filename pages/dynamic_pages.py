@@ -6,7 +6,7 @@ from pages.base_page import BasePage
 
 
 class DynamicControlsPage(BasePage):
-    CHECKBOX = (By.CSS_SELECTOR, "#checkbox input[type='checkbox']")
+    CHECKBOX = (By.CSS_SELECTOR, "#checkbox-example input[type='checkbox']")
     REMOVE_ADD_BUTTON = (By.CSS_SELECTOR, "#checkbox-example button")
     INPUT = (By.CSS_SELECTOR, "#input-example input")
     ENABLE_DISABLE_BUTTON = (By.CSS_SELECTOR, "#input-example button")
