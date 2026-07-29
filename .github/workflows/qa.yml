@@ -10,7 +10,7 @@ on:
     # Nightly. A weekly cron produced about four runs a month, which is below the
     # five scored runs the rolling-flip classifier needs before it will call
     # anything flaky - so it never got to say anything.
-    - cron: "0 6 * * *"
+    - cron: "0 2 * * *"
 
 permissions:
   contents: read
@@ -91,6 +91,27 @@ jobs:
             reports/
             public/
 
+      # Feed this run into TestPulse, which is what puts this suite on the
+      # public dashboard at testpulse-eight.vercel.app.
+      #
+      # always(), because a failing run is the data point that matters most -
+      # skipping ingest on red would mean the flake history only ever sees green.
+      #
+      # Not on pull requests: the junit report is only produced by the full
+      # suite, which itself does not run on pull requests, and branch runs would
+      # pollute the history anyway.
+      - name: Record the run in TestPulse
+        if: always() && github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: Mohanad49/testpulse@main
+        with:
+          path: reports/junit-results.xml
+          format: junit
+          suite: saucedemo-selenium
+          database-url: ${{ secrets.TESTPULSE_DATABASE_URL }}
+          dashboard-url: https://testpulse-eight.vercel.app
+          comment: "false"
+
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && always()
         uses: actions/configure-pages@v5
@@ -154,3 +175,18 @@ jobs:
             reports/junit-results.xml
             reports/allure-results/
           retention-days: 30
+
+      # Each attempt is stored as its own run. TestPulse's natural key includes
+      # the start time, so three runs of one unchanged commit do not collapse
+      # into one - which is the entire reason this job exists.
+      - name: Record the run in TestPulse
+        if: always()
+        continue-on-error: true
+        uses: Mohanad49/testpulse@main
+        with:
+          path: reports/junit-results.xml
+          format: junit
+          suite: saucedemo-selenium
+          database-url: ${{ secrets.TESTPULSE_DATABASE_URL }}
+          dashboard-url: https://testpulse-eight.vercel.app
+          comment: "false"
