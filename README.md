@@ -7,6 +7,19 @@
 
 A production-style Selenium + PyTest automation framework targeting Sauce Labs' open-source **The Internet** web app.
 
+> **This is the Selenium predecessor to my Playwright work, and it is still running on
+> purpose.** Its successor is
+> [orangehrm-playwright](https://github.com/Mohanad49/orangehrm-playwright). Both report
+> into [TestPulse](https://testpulse-eight.vercel.app) nightly, which is what makes the
+> comparison between them measurable rather than remembered.
+>
+> **[MIGRATION.md](MIGRATION.md)** is that comparison, and it does not conclude what I
+> expected. Over a 44-run window this suite shows **17 of 70 tests flaky** against the
+> Playwright suite's **1 of 18** — but three of the top five flaky tests here only assert
+> that a link points where it says it does, which cannot race. They are a free Heroku dyno
+> failing to answer. The framework is not what moved that number; **controlling the
+> environment is**, and you can buy most of that improvement without rewriting a test.
+
 ## Why this project exists
 
 Most junior QA portfolios are just loose Selenium scripts. This one is intentionally structured like a real QA framework:
